@@ -1,0 +1,51 @@
+<App>
+	<JavaScript>
+		function writeLog(){
+
+			console.log("Clicked Button");
+		}
+		function goMenuPage(){
+			router.push("menuPage");
+}
+		function goBack(){
+			router.goBack();
+		}
+
+		module.exports = {
+			writeLog
+			, goMenuPage, goBack
+		};
+
+
+
+
+	</JavaScript>
+	<Router ux:Name="router" />
+
+
+	<ClientPanel>
+		<Navigator DefaultTemplate="spashPage">
+
+
+			<Page ux:Template="spashPage">
+				<Panel>
+					<Text Value="대전 맛집" TextColor="#F7F3F3" FontSize="50" Alignment="Center" Margin="0, 50, 0, 0" Clicked="{goMenuPage}" />
+					<Image File="mobile_visual.jpg" StretchMode="UniformToFill" Opacity="1" />
+				</Panel>
+			</Page>
+
+			<Page ux:Template="menuPage">
+				<StackPanel ItemSpacing="20" Background="#F4F4F4">
+					<Rectangle Color="#3794DB" Height="100" Opacity="1" Clicked="{writeLog}" />
+					<Rectangle Color="#3794DB" Height="100" />
+					<Rectangle Color="#3794DB" Height="100" Clicked="{goBack}">
+						<Text Value="뒤로가기 버튼" TextColor="#000000FC" FontSize="40" Alignment="Center" Color="#120305" />
+					</Rectangle>
+				</StackPanel>
+				
+			</Page>
+		</Navigator>
+
+
+	</ClientPanel>
+</App>
